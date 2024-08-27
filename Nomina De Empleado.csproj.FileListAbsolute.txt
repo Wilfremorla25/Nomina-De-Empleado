@@ -1,0 +1,10 @@
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\bin\Debug\Nomina De Empleado.exe.config
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\bin\Debug\Nomina De Empleado.exe
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\bin\Debug\Nomina De Empleado.pdb
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina De Empleado.csproj.AssemblyReference.cache
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina_De_Empleado.Form1.resources
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina_De_Empleado.Properties.Resources.resources
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina De Empleado.csproj.GenerateResource.cache
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina De Empleado.csproj.CoreCompileInputs.cache
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina De Empleado.exe
+C:\Users\rayne\Source\Repos\Class-of-gamalier-Gestion-De-Nomina\obj\Debug\Nomina De Empleado.pdb
