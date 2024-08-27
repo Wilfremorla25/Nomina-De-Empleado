@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nomina_De_Empleado
 {
@@ -22,14 +20,16 @@ namespace Nomina_De_Empleado
             GuardarEnArchivo();
         }
 
-        public void ModificarEmpleado(int id, string nuevoNombre, string nuevoApellido, decimal nuevoSalario)
+        public void ModificarEmpleado(int id, string nuevoNombre, string nuevoApellido, decimal nuevoSalario, string nuevocargo)
         {
             var empleado = empleados.FirstOrDefault(e => e.ID == id);
             if (empleado != null)
             {
                 empleado.Nombre = nuevoNombre;
                 empleado.Apellido = nuevoApellido;
+                empleado.Cargo = nuevocargo;
                 empleado.Salario = nuevoSalario;
+               
                 GuardarEnArchivo();
             }
         }
@@ -69,20 +69,44 @@ namespace Nomina_De_Empleado
         {
             if (File.Exists("empleados.txt"))
             {
-                using (StreamReader sr = new StreamReader("empleados.txt"))
+                try
                 {
-                    string linea;
-                    while ((linea = sr.ReadLine()) != null)
+                    using (StreamReader sr = new StreamReader("empleados.txt"))
                     {
-                        var datos = linea.Split(',');
-                        var empleado = new Empleado(
-                            int.Parse(datos[0]),
-                            datos[1],
-                            datos[2],
-                            decimal.Parse(datos[3]));
-                        empleados.Add(empleado);
+                        string linea;
+                        while ((linea = sr.ReadLine()) != null)
+                        {
+                            var datos = linea.Split(',');
+
+                            // Validación de la cantidad de datos
+                            if (datos.Length < 5)
+                            {
+                                Console.WriteLine("Línea con formato incorrecto: " + linea);
+                                continue; // Saltar esta línea y continuar con la siguiente
+                            }
+
+                            // Validación de los datos
+                            if (int.TryParse(datos[0], out int id) &&
+                                decimal.TryParse(datos[4], out decimal salario))
+                            {
+                                Empleado empleado = new Empleado(id, datos[1], datos[2], salario);
+                                empleados.Add(empleado);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Datos inválidos en la línea: " + linea);
+                            }
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ocurrió un error al leer el archivo: " + ex.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine("El archivo 'empleados.txt' no existe.");
             }
         }
     }
