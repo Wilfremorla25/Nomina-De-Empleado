@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Nomina_De_Empleado
@@ -20,7 +27,7 @@ namespace Nomina_De_Empleado
             gestionEmpleados.CargarDesdeArchivo();
             ActualizarDataGridView();
         }
-   
+
         // Codigo para actualizar el DataGridView con la lista de empleados
         private void ActualizarDataGridView()
         {
@@ -36,10 +43,9 @@ namespace Nomina_De_Empleado
                 int id = int.Parse(txtID.Text);
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
-                string Cargo = txtCargo.Text;
                 decimal salario = decimal.Parse(txtSalario.Text);
 
-                gestionEmpleados.AgregarEmpleado(new Empleado(id, nombre, apellido, salario, Cargo));
+                gestionEmpleados.AgregarEmpleado(new Empleado(id, nombre, apellido, salario));
                 ActualizarDataGridView();
                 MessageBox.Show("Empleado agregado correctamente.");
             }
@@ -57,10 +63,9 @@ namespace Nomina_De_Empleado
                 int id = int.Parse(txtID.Text);
                 string nuevoNombre = txtNombre.Text;
                 string nuevoApellido = txtApellido.Text;
-                string nuevoCargo = txtCargo.Text;
                 decimal nuevoSalario = decimal.Parse(txtSalario.Text);
 
-                gestionEmpleados.ModificarEmpleado(id, nuevoNombre, nuevoApellido, nuevoSalario,nuevoCargo);
+                gestionEmpleados.ModificarEmpleado(id, nuevoNombre, nuevoApellido, nuevoSalario);
                 ActualizarDataGridView();
                 MessageBox.Show("Empleado modificado con exito.");
             }
@@ -83,7 +88,6 @@ namespace Nomina_De_Empleado
                     txtNombre.Text = empleado.Nombre;
                     txtApellido.Text = empleado.Apellido;
                     txtSalario.Text = empleado.Salario.ToString();
-                    txtCargo.Text = empleado.Cargo;
                     MessageBox.Show("Empleado encontrado.");
                 }
                 else
@@ -132,20 +136,9 @@ namespace Nomina_De_Empleado
         // Control sobre el DataGridView
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-         
         }
 
         private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void label6_Click(object sender, EventArgs e)
         {
 
         }
